@@ -1,3 +1,4 @@
+/* Importamos archivo externo de la librería flexboxgrid */
 @import url('flexboxgrid.css');
 
 /* Variables nativas */
@@ -30,15 +31,11 @@ body {
 
 .container-fluid {
   background-color: rgba(0, 0, 0, 0.75);
-}
-
-.header {
-  height: 5vh;
+  max-width: 100vw;
 }
 
 .logo {
-  justify-self: end;
-  width: 100%;
+  width: 25%;
 }
 
 .boton-iniciar-sesion,
@@ -50,34 +47,31 @@ body {
 }
 
 .boton-iniciar-sesion {
-  font-size: 1em;
-  height: 5vh;
-  line-height: 2em;
-  margin: 16px 10px 16px 300px;
+  font-size: 1.1em;
+  line-height: 1.8em;
   text-align: center;
 }
 
-.section {
-  height: 60vh;
-  line-height: normal;
-  margin: 12em 0 0 0;
+section {
+  line-height: 5em;
+  margin-top: 30vh;
 }
 
 h1,
 h2,
-.nav a,
+nav a,
 .svg-icon,
 p {
   color: var(--blanco);
 }
 
 h2 {
-  font-size: 5em;
+  font-size: 4em;
   font-weight: 600;
 }
 
 h1 {
-  font-size: 2em;
+  font-size: 1.5em;
   font-weight: 300;
 }
 
@@ -86,23 +80,24 @@ h1,
   text-transform: uppercase;
 }
 
-.section .boton-unirte-ahora {
+section .boton-unirte-ahora {
   font-size: 1.5em;
-  height: 14vh;
-  padding: 1.3em 3em;
+  letter-spacing: 4px;
+  padding: 0.5em 3em;
 }
 
-.nav {
+nav {
   background-color: var(--gris-nav);
   border-bottom: 2px solid var(--gris-borde);
-  height: 20vh;
+  margin-top: 15vh;
+  max-width: 100vw;
 }
 
-.nav a {
+nav a {
   font-size: 0.8em;
-  padding: 0.5em 2.2em 0 2.2em;
   text-align: center;
-  width: 25%;
+  padding: 1em 0;
+  width: 22%;
 }
 
 .active {
@@ -110,7 +105,6 @@ h1,
 }
 
 .svg-icon {
-  margin: 0.5em 0;
   width: 20%;
 }
 
@@ -118,75 +112,78 @@ h1,
   content: attr(data-desktop);
 }
 
-.article {
-  line-height: 1.8em;
-  height: 55vh;
-  padding: 3.5em 0 5em 0;
+article {
+  line-height: 1.5em;
+  margin-top: 10vh;
 }
 
-.article p {
-  font-size: 1.4em;
+article p {
+  font-size: 1.3em;
   font-weight: 400;
 }
 
-.article .boton-unirte-ahora {
+article .boton-unirte-ahora {
   font-size: 0.8em;
   letter-spacing: 0.2em;
   padding: 1em 2em;
 }
 
 .imagen-cancelar {
-  height: 100%;
-  width: 100%;
+  height: 50%;
+  width: 50%;
 }
 
-.footer {
-  height: 40vh;
-  padding-top: 6em;
+footer {
+  margin-top: 10em;
 }
 
-.footer,
-.footer p,
-.footer a {
+footer,
+footer p,
+footer a {
   color: var(--gris-footer);
 }
 
-.footer p,
-.footer a {
-  font-size: 0.8em;
+footer p,
+footer a {
+  font-size: 0.6em;
 }
 
+.copyright {
+  margin-top: 5em;
+  margin-bottom: 2em;
+}
+
+/* Efectos estado hover en botones */
 .boton-iniciar-sesion:hover,
 .boton-unirte-ahora:hover {
   background-color: var(--rojo-intenso);
 }
 
-.nav a:hover {
+nav a:hover {
   color: var(--gris-footer);
 }
 
-.footer a:hover {
+footer a:hover {
   text-decoration: underline;
 }
 
 /*
+******* Media Queries ********
+ */
 
 @media (max-width: 375px) {
   body {
     background-size: 85vh;
     max-width: 100vw;
   }
-  .container {
+
+  .container-fluid {
     background-color: rgba(0, 0, 0, 0.2);
-    grid-template-rows: 10vh 70vh;
     max-width: 100vw;
   }
 
-  .header {
-    display: grid;
-    grid-template-columns: 20vw 80vw;
-    justify-content: space-around;
-    padding: 0 3em;
+  header {
+    padding-top: 1em;
   }
 
   .logo {
@@ -194,15 +191,11 @@ h1,
   }
 
   .boton-iniciar-sesion {
-    height: 4vh;
-    margin-right: 5em;
-    width: 35%;
+    font-size: 0.9em;
   }
 
-  .section {
+  section {
     line-height: 2em;
-    margin-top: 15em;
-    padding: 0 2em;
   }
 
   h2 {
@@ -215,7 +208,7 @@ h1,
     font-weight: 300;
   }
 
-  .section .boton-unirte-ahora {
+  section .boton-unirte-ahora {
     font-size: 0.9em;
     letter-spacing: 2px;
     margin-top: 2em;
@@ -230,11 +223,11 @@ h1,
     content: attr(data-phone);
   }
 
-  .nav {
-    width: 100vw;
+  nav {
+    max-width: 100vw;
   }
 
-  .nav a {
+  nav a {
     font-size: 0.5em;
     width: 25%;
   }
@@ -243,50 +236,26 @@ h1,
     width: 50%;
   }
 
-  .article {
-    display: grid;
-    grid-template: 20vh 40vh / 70vw;
-    margin: 0 0.5em;
+  article {
+    margin: 2em 0;
     text-align: center;
-    width: 100vw;
+    max-width: 100vw;
   }
 
-  .article p {
+  article p {
     font-weight: 300;
   }
 
-  .article .boton-unirte-ahora {
-    font-size: 0.9em;
+  article .boton-unirte-ahora {
+    font-size: 0.8em;
   }
 
-  .footer {
-    align-self: end;
-    display: grid;
-    grid-template-rows: 20vh 10vh;
-    padding: 0.5em 2em;
+  .imagen-cancelar {
+    margin-top: 2em;
   }
 
-  .footer p,
-  .footer a {
+  footer p,
+  footer a {
     font-size: 0.8em;
   }
 }
-
-
-
-.landscape {
-  background-color: var(--negro);
-  color: var(--blanco);
-  display: none;
-  height: 80vh;
-  width: 80vw;
-}
-
-@media (min-width: 375px) and (max-width: 700px) and (orientation: landscape) {
-  .landscape {
-    align-items: center;
-    display: block;
-    display: flex;
-    justify-content: center;
-  }
-} */
